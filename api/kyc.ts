@@ -3,10 +3,10 @@ import { createClient } from 'redis';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const client = createClient({
-    password: 'fOeUIS7HWAy7rbsECJQcuQn5HdjB1bvJ',
+    password: process.env.REDIS_PASSWORD,
     socket: {
-      host: 'redis-18236.c13378.us-east-1-mz.ec2.cloud.rlrcp.com',
-      port: 18236
+      host: process.env.REDIS_HOST,
+      port: parseInt(process.env.REDIS_PORT)
     }
   });
 
